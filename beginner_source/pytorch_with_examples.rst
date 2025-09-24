@@ -8,9 +8,14 @@ Learning PyTorch with Examples
    beginner content in 
    `Learn the Basics <https://pytorch.org/tutorials/beginner/basics/intro.html>`_.
 
+   이전 PyTorch 튜토리얼 중 하나입니다. 
+   당신은 `Learn the Basics <https://pytorch.org/tutorials/beginner/basics/intro.html>`_ 에서 최신 입문자 콘텐츠를 볼 수 있습니다.
+
 This tutorial introduces the fundamental concepts of
 `PyTorch <https://github.com/pytorch/pytorch>`__ through self-contained
 examples.
+
+이 튜토리얼은, 하나로 완전한 예시를 통해 `PyTorch <https://github.com/pytorch/pytorch>`__의 근본적인 개념을 도입합니다.
 
 At its core, PyTorch provides two main features:
 
@@ -21,6 +26,14 @@ We will use a problem of fitting :math:`y=\sin(x)` with a third order polynomial
 as our running example. The network will have four parameters, and will be trained with
 gradient descent to fit random data by minimizing the Euclidean distance
 between the network output and the true output.
+
+이 코어에서, PyTorch는 두가지 주요 특징을 제공합니다:
+
+- 하나의 n-차원 텐서, 넘파이와 유사하지만 GPU로 작동할 수 있습니다.
+- 신경망을 세우고 훈련시키기 위한 자동적인 미분
+
+우리는 실행 예시로 :math:`y=\sin(x)`을 삼차 다항으로 적합시키는 문제를 사용할 것입니다. 
+그 네트워크는 4가지 파라미터를 가질 것이고, 신경망과 실제 결과 사이에서 훈련될 것입니다.
 
 .. note::
    You can browse the individual examples at the
