@@ -1,63 +1,42 @@
-Learning PyTorch with Examples
+예시와 함께 배우는 파이토치
 ==============================
 
 **Author**: `Justin Johnson <https://github.com/jcjohnson/pytorch-examples>`_
 
 .. note::
-   This is one of our older PyTorch tutorials. You can view our latest
-   beginner content in 
-   `Learn the Basics <https://pytorch.org/tutorials/beginner/basics/intro.html>`_.
 
    이전 PyTorch 튜토리얼 중 하나입니다. 
    당신은 `Learn the Basics <https://pytorch.org/tutorials/beginner/basics/intro.html>`_ 에서 최신 입문자 콘텐츠를 볼 수 있습니다.
 
-This tutorial introduces the fundamental concepts of
-`PyTorch <https://github.com/pytorch/pytorch>`__ through self-contained
-examples.
-
 이 튜토리얼은, 하나로 완전한 예시를 통해 `PyTorch <https://github.com/pytorch/pytorch>`__의 근본적인 개념을 도입합니다.
 
-At its core, PyTorch provides two main features:
-
-- An n-dimensional Tensor, similar to numpy but can run on GPUs
-- Automatic differentiation for building and training neural networks
-
-We will use a problem of fitting :math:`y=\sin(x)` with a third order polynomial
-as our running example. The network will have four parameters, and will be trained with
-gradient descent to fit random data by minimizing the Euclidean distance
-between the network output and the true output.
-
-이 코어에서, PyTorch는 두가지 주요 특징을 제공합니다:
+이 코어에서, PyTorch는 두가지 핵심적인 특징을 제공합니다:
 
 - 하나의 n-차원 텐서, 넘파이와 유사하지만 GPU로 작동할 수 있습니다.
 - 신경망을 세우고 훈련시키기 위한 자동적인 미분
 
-우리는 실행 예시로 :math:`y=\sin(x)`을 삼차 다항으로 적합시키는 문제를 사용할 것입니다. 
+우리는 실행 예시로 :math:`y=\sin(x)`을 삼차 다항식으로 적합시키는 문제를 사용할 것입니다. 
 그 네트워크는 4가지 파라미터를 가질 것이고, 신경망과 실제 결과 사이에서 훈련될 것입니다.
 
 .. note::
-   You can browse the individual examples at the
-   :ref:`end of this page <examples-download>`.
+   당신은 개별 예시를 
+   :ref:`end of this page <examples-download>` 에서 검색할 수 있습니다.
 
 .. contents:: Table of Contents
    :local:
 
-Tensors
+
+텐서
 ~~~~~~~
 
-Warm-up: numpy
+준비운동: 넘파이
 --------------
 
-Before introducing PyTorch, we will first implement the network using
-numpy.
+파이토치를 도입하기 전에, 우리는 먼저 넘파이를 통해 신경망을 먼저 구현합니다.
 
-Numpy provides an n-dimensional array object, and many functions for
-manipulating these arrays. Numpy is a generic framework for scientific
-computing; it does not know anything about computation graphs, or deep
-learning, or gradients. However we can easily use numpy to fit a
-third order polynomial to sine function by manually implementing the forward
-and backward passes through the network using numpy operations:
-
+넘파이는 n-차원 배열 객체를 제공하고, 이 배열을 조작하는 다양한 함수를 제공합니다.
+넘파이는 과학적 계산을 위한 제네릭 프레임워크입니다. 이는 계산 그래프 혹은 딥러닝, 혹은 경사에 관한 어느 것도 알지 못합니다.
+그러나 우리는 넘파이 연산을 통해 포워드 및 백워드 패스를 수작업으로 구현하여 사인 함수에 3차 다항식을 적합합니다:
 .. includenodoc:: /beginner/examples_tensor/polynomial_numpy.py
 
 
