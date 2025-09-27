@@ -1,28 +1,29 @@
-예시와 함께 배우는 파이토치
+예제로 배우는 파이토치
 ==============================
 
-**Author**: `Justin Johnson <https://github.com/jcjohnson/pytorch-examples>`_
+**저자**: `Justin Johnson <https://github.com/jcjohnson/pytorch-examples>`__  
+**번역**: `강호현 <https://github.com/stats-dev/2025-OSSCA-pytorch/blob/main/beginner_source/pytorch_with_examples.rst>`__ 
 
 .. note::
 
    이전 PyTorch 튜토리얼 중 하나입니다. 
-   당신은 `Learn the Basics <https://pytorch.org/tutorials/beginner/basics/intro.html>`_ 에서 최신 입문자 콘텐츠를 볼 수 있습니다.
+   당신은 `Learn the Basics <https://pytorch.org/tutorials/beginner/basics/intro.html>`__ 에서 최신 입문자 콘텐츠를 볼 수 있습니다.
 
-이 튜토리얼은, 하나로 완전한 예시를 통해 `PyTorch <https://github.com/pytorch/pytorch>`__의 근본적인 개념을 도입합니다.
+이 튜토리얼은, 하나로 완전한 예시를 통해 `PyTorch <https://github.com/pytorch/pytorch>`__ 의 근본적인 개념을 도입합니다.
 
-이 코어에서, PyTorch는 두가지 핵심적인 특징을 제공합니다:
+이 코어에서, PyTorch는 두가지 핵심적인 특징을 제공합니다.
 
-- 하나의 n-차원 텐서, 넘파이와 유사하지만 GPU로 작동할 수 있습니다.
-- 신경망을 세우고 훈련시키기 위한 자동적인 미분
+- 하나의 n-차원 텐서로, 넘파이와 유사하지만 GPU로 작동할 수 있습니다.
+- 네트워크를 세우고 학습시키기 위한 자동적인 미분
 
-우리는 실행 예시로 :math:`y=\sin(x)`을 삼차 다항식으로 적합시키는 문제를 사용할 것입니다. 
-그 네트워크는 4가지 파라미터를 가질 것이고, 신경망과 실제 결과 사이에서 훈련될 것입니다.
+우리는 실행 예시로 :math:`y=\sin(x)` 을 삼차 다항식으로 적합시키는 문제를 사용합니다.
+신경망은 4가지 파라미터를 가질 것이고, 그 신경망 결과와 실제 결과 사이에서 훈련됩니다.
 
 .. note::
-   당신은 개별 예시를 
-   :ref:`end of this page <examples-download>` 에서 검색할 수 있습니다.
+   각 예제를 
+   :ref: `end of this page <examples-download>`__ 에서 검색할 수 있습니다.
 
-.. contents:: Table of Contents
+.. contents:: 목차
    :local:
 
 
@@ -32,11 +33,11 @@
 준비운동: 넘파이
 --------------
 
-파이토치를 도입하기 전에, 우리는 먼저 넘파이를 통해 신경망을 먼저 구현합니다.
+파이토치를 도입하기 전에, 먼저 넘파이를 통해 신경망을 먼저 구현합니다.
 
 넘파이는 n-차원 배열 객체를 제공하고, 이 배열을 조작하는 다양한 함수를 제공합니다.
 넘파이는 과학적 계산을 위한 제네릭 프레임워크입니다. 이는 계산 그래프 혹은 딥러닝, 혹은 경사에 관한 어느 것도 알지 못합니다.
-그러나 우리는 넘파이 연산을 통해 포워드 및 백워드 패스를 수작업으로 구현하여 사인 함수에 3차 다항식을 적합합니다:
+그러나 넘파이 연산을 통해 포워드 및 백워드 패스를 직접 구현하여 사인 함수에 3차 다항식을 적합합니다.
 
 .. includenodoc:: /beginner/examples_tensor/polynomial_numpy.py
 
